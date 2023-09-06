@@ -16,3 +16,13 @@ In an empty directory, run:
 ```
 cdk init app --language python
 ```
+
+#### account
+
+To use ENV variables
+
+```
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+export AWS_DEFAULT_REGION=us-east-1
+```
