@@ -32,3 +32,9 @@ Switch account on cdk use
 ```
 cdk deploy --profile aws_main
 ```
+
+### Destroy a stack
+
+```
+cdk destroy --profile aws_main
+```
