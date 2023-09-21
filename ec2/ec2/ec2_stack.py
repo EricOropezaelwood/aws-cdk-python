@@ -36,6 +36,7 @@ class Ec2Stack(Stack):
             vpc_subnets=ec2.SubnetSelection(
                 subnet_type=ec2.SubnetType.PUBLIC
             ),  # Use public subnet
+            key_name="eric-dev-key",  # Associate the key pair with the EC2 instance
         )
 
         # Optionally, you can add security groups, IAM roles, etc. to the EC2 instance here.
