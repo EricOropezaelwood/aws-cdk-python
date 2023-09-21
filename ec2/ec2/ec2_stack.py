@@ -24,6 +24,17 @@ class Ec2Stack(Stack):
             ],
         )
 
+        # Create a security group that allows incoming SSH traffic on port 22
+        ssh_security_group = ec2.SecurityGroup(
+            self,
+            "sg-01",
+            vpc=vpc,
+            allow_all_outbound=True,  # Allow all outbound traffic
+        )
+        ssh_security_group.add_ingress_rule(
+            ec2.Peer.any_ipv4(), ec2.Port.tcp(22), "Allow SSH access"
+        )
+
         # Create an EC2 instance
         ec2_instance = ec2.Instance(
             self,
@@ -37,6 +48,7 @@ class Ec2Stack(Stack):
                 subnet_type=ec2.SubnetType.PUBLIC
             ),  # Use public subnet
             key_name="eric-dev-key",  # Associate the key pair with the EC2 instance
+            security_group=ssh_security_group,  # Associate the SSH security group
         )
 
         # Optionally, you can add security groups, IAM roles, etc. to the EC2 instance here.
