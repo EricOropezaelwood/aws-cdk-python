@@ -47,7 +47,7 @@ class Ec2Stack(Stack):
             vpc_subnets=ec2.SubnetSelection(
                 subnet_type=ec2.SubnetType.PUBLIC
             ),  # Use public subnet
-            key_name="eric-dev-key",  # Associate the key pair with the EC2 instance
+            key_name="eric-mac-01",  # Associate the key pair with the EC2 instance
             security_group=ssh_security_group,  # Associate the SSH security group
         )
 
